@@ -11,30 +11,31 @@
         <div class="flex-1">
             <a class="btn btn-ghost text-xl">Startup</a>
         </div>
-        <div class="flex-none">
+        <div class="flex items-center gap-3">
             @guest
             <a href="{{ route('login') }}" class="btn btn-primary">Masuk</a>
             @endguest
             @auth
+            <p>Halo, {{ Auth::user()->name }}</p>
             <div class="dropdown dropdown-end">
-            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-                <div class="w-10 rounded-full">
-                <img
-                    alt="Tailwind CSS Navbar component"
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                    <img
+                        alt="Tailwind CSS Navbar component"
+                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                    </div>
                 </div>
-            </div>
-            <ul
-                tabindex="-1"
-                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                <li>
-                <a class="justify-between">
-                    Profile
-                </a>
-                </li>
-                <li><a>Settings</a></li>
-                <li><a>Logout</a></li>
-            </ul>
+                <ul
+                    tabindex="-1"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                    <li>
+                    <a class="justify-between">
+                        Profile
+                    </a>
+                    </li>
+                    <li><a>Settings</a></li>
+                    <li><a href="{{ route('logout') }}">Logout</a></li>
+                </ul>
             </div>
             @endauth
         </div>
