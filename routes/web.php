@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
@@ -12,4 +13,7 @@ Route::post('/daftar', [AuthController::class, 'store'])->name('register-store')
 
 Route::middleware('auth')->group(function () {
     Route::get('/keluar', [AuthController::class, 'logout'])->name('logout');
+
+    // Profile
+    Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
 });
