@@ -50,8 +50,18 @@ class User extends Authenticatable
         ];
     }
 
-    public function profiles(): HasOne
+    public function profile(): HasOne
     {
         return $this->hasOne(Profile::class, 'user_id', 'id');
+    }
+
+    public function scopeSearch($query, $searchQuery)
+    {
+        if (empty(trim($searchQuery))) {
+            return $query->whereRaw('1 = 0');
+        }
+        $searchQuery = trim($searchQuery);
+        return static::where('name', 'like', "%{$searchQuery}%")
+             ->orWhere('username', 'like', "%{$searchQuery}%");
     }
 }

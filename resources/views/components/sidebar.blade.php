@@ -1,25 +1,7 @@
 <div class="w-1/5 h-screen border-r border-r-gray-200 p-3">
     <ul class="w-full grow">
-        <div class="mb-3">
-            <h2 class="mb-8 font-medium text-xl">Sandboxkw</h2>
-            <label class="input">
-            <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <g
-                stroke-linejoin="round"
-                stroke-linecap="round"
-                stroke-width="2.5"
-                fill="none"
-                stroke="currentColor"
-                >
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.3-4.3"></path>
-                </g>
-            </svg>
-            <input type="search" class="grow" placeholder="Search" />
-            <kbd class="kbd kbd-sm">⌘</kbd>
-            <kbd class="kbd kbd-sm">K</kbd>
-            </label>
-        </div>
+        <h2 class="mb-8 font-medium text-xl">Sandboxkw</h2>
+        <livewire:search-user>
         <li class="mb-3">
             <a href="{{ route('home') }}" class="flex items-center gap-3 py-2 px-3 rounded hover:bg-gray-200">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">

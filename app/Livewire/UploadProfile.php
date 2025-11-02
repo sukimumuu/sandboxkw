@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,7 +14,7 @@ class UploadProfile extends Component
     use WithFileUploads;
 
 
-    
+    #[Validate('image|max:1024')]
     public $avatar;
 
     protected $rules = [
@@ -26,13 +27,6 @@ class UploadProfile extends Component
         'avatar.mimes' => 'File harus bertipe: jpeg, png, jpg, gif, svg',
         'avatar.max' => 'Ukuran file gambar maksimal 1MB',
     ];
-
-    public function updated($propertyName)
-    {
-
-        $this->validateOnly($propertyName);
-
-    }
 
     public function save()
     {
